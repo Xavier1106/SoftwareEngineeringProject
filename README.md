@@ -1,2 +1,13 @@
 # SoftwareEngineeringProject
-HUST Software Engineering, Team members: 刘玺语，吕嘉乐，毛俊棋，张恒铭
+## 文件组织结构
+Doc目录存放项目中的文档。
+
+Src目录存放项目代码。
+
+## 项目成员
+登录名|姓名|分工|贡献
+------|---|----|---
+*|刘玺语|接口实现|25%
+*|吕嘉乐|后端实现|25%
+*|张恒铭|前端实现|25%
+Vi-brance|毛俊棋|文档撰写|25%
