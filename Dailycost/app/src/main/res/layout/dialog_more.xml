@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/grey_f3f3f3">
+
+    <Button
+        android:id="@+id/dialog_more_btn_about"
+        style="@style/dialogmoreStyle"
+        android:layout_width="173dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="52dp"
+        android:drawableTop="@mipmap/it_guanyu"
+        android:text="@string/about"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dialog_more_btn_setting"
+        style="@style/dialogmoreStyle"
+        android:layout_width="176dp"
+        android:layout_height="89dp"
+
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="28dp"
+        android:drawableTop="@mipmap/it_shezhi"
+        android:text="@string/setting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_more_btn_record" />
+
+    <Button
+        android:id="@+id/dialog_more_btn_record"
+        style="@style/dialogmoreStyle"
+        android:layout_width="176dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="28dp"
+        android:drawableTop="@mipmap/it_jilu"
+        android:text="@string/history_record"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_more_btn_info" />
+
+    <ImageView
+        android:id="@+id/dialog_more_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ih_error"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/dialog_more_btn_info"
+        style="@style/dialogmoreStyle"
+        android:layout_width="178dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="28dp"
+        android:drawableTop="@mipmap/it_xiqing"
+        android:text="@string/account_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialog_more_btn_about" />
+</androidx.constraintlayout.widget.ConstraintLayout>
