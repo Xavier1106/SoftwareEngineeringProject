@@ -1,8 +1,8 @@
 # SoftwareEngineeringProject
 ## 文件组织结构
-Doc目录存放项目中的文档。
+Docs目录存放项目中的文档。
 
-Src目录存放项目代码。
+Dailycost目录存放项目代码。
 
 ## 项目成员
 姓名|分工|贡献
