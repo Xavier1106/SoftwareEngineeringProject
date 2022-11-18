@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -44,6 +45,7 @@ public class MonthChartActivity extends AppCompatActivity {
     }
 
     private void setVPSelectListener() {
+
         chartVp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
             @Override
             public void onPageSelected(int position) {
@@ -54,25 +56,26 @@ public class MonthChartActivity extends AppCompatActivity {
 
     private void initFrag() {
         chartFragList = new ArrayList<>();
-//        添加Fragment的对象
+        //添加Fragment的对象
         incomChartFragment = new IncomChartFragment();
         outcomChartFragment = new OutcomChartFragment();
-//        添加数据到Fragment当中
+        //添加数据到Fragment当中
         Bundle bundle = new Bundle();
         bundle.putInt("year",year);
         bundle.putInt("month",month);
         incomChartFragment.setArguments(bundle);
         outcomChartFragment.setArguments(bundle);
-//        将Fragment添加到数据源当中
+        //将Fragment添加到数据源当中
         chartFragList.add(outcomChartFragment);
         chartFragList.add(incomChartFragment);
-//        使用适配器
+        //使用适配器
         chartVPAdapter = new ChartVPAdapter(getSupportFragmentManager(), chartFragList);
         chartVp.setAdapter(chartVPAdapter);
-//        将Fragment加载到Acitivy当中
+        //将Fragment加载到Activity当中
     }
 
     /* 统计某年某月的收支情况数据*/
+    @SuppressLint("SetTextI18n")
     private void initStatistics(int year, int month) {
         float inMoneyOneMonth = DBManager.getSumMoneyOneMonth(year, month, 1);  //收入总钱数
         float outMoneyOneMonth = DBManager.getSumMoneyOneMonth(year, month, 0); //支出总钱数
@@ -84,14 +87,14 @@ public class MonthChartActivity extends AppCompatActivity {
 
     }
 
-    /** 初始化时间的方法*/
+    //初始化时间的方法
     private void initTime() {
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH)+1;
     }
 
-    /** 初始化控件*/
+    //初始化控件
     private void initView() {
         inBtn = findViewById(R.id.chart_btn_in);
         outBtn = findViewById(R.id.chart_btn_out);
@@ -101,12 +104,13 @@ public class MonthChartActivity extends AppCompatActivity {
         chartVp = findViewById(R.id.chart_vp);
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.chart_iv_back:
                 finish();
                 break;
-            case R.id.chart_iv_rili:
+            case R.id.chart_iv_calendar:
                 showCalendarDialog();
                 break;
             case R.id.chart_btn_in:
@@ -119,20 +123,17 @@ public class MonthChartActivity extends AppCompatActivity {
                 break;
         }
     }
-    /* 显示日历对话框*/
+    //显示日历对话框
     private void showCalendarDialog() {
         CalendarDialog dialog = new CalendarDialog(this, selectPos, selectMonth);
         dialog.show();
         dialog.setDialogSize();
-        dialog.setOnRefreshListener(new CalendarDialog.OnRefreshListener() {
-            @Override
-            public void onRefresh(int selPos, int year, int month) {
-                MonthChartActivity.this.selectPos = selPos;
-                MonthChartActivity.this.selectMonth = month;
-                initStatistics(year,month);
-                incomChartFragment.setDate(year,month);
-                outcomChartFragment.setDate(year,month);
-            }
+        dialog.setOnRefreshListener((selPos, year, month) -> {
+            MonthChartActivity.this.selectPos = selPos;
+            MonthChartActivity.this.selectMonth = month;
+            initStatistics(year,month);
+            incomChartFragment.setDate(year,month);
+            outcomChartFragment.setDate(year,month);
         });
     }
 

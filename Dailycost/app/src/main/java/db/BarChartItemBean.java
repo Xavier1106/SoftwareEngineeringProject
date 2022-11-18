@@ -6,8 +6,7 @@ public class BarChartItemBean {
     int day;
     float summoney;
 
-    public BarChartItemBean() {
-    }
+    public BarChartItemBean() {}
 
     public int getYear() {
         return year;

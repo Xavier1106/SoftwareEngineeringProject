@@ -48,7 +48,7 @@ public class AccountAdapter extends BaseAdapter {
         return position;
     }
 
-    @SuppressLint("ResourceAsColor")
+    @SuppressLint({"ResourceAsColor", "SetTextI18n"})
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
@@ -62,7 +62,7 @@ public class AccountAdapter extends BaseAdapter {
         AccountBean bean = mDatas.get(position);
         holder.typeIv.setImageResource(bean.getsImageId());
         holder.typeTv.setText(bean.getTypename());
-        holder.beizhuTv.setText(bean.getBeizhu());
+        holder.descriptionTv.setText(bean.getDescription());
         if(bean.getKind()==1){
             holder.moneyTv.setText("+ "+bean.getMoney());
             holder.moneyTv.setTextColor(context.getResources().getColor(R.color.slight_red));
@@ -82,12 +82,12 @@ public class AccountAdapter extends BaseAdapter {
 
     class ViewHolder{
         ImageView typeIv;
-        TextView typeTv,beizhuTv,timeTv,moneyTv;
+        TextView typeTv, descriptionTv,timeTv,moneyTv;
         public ViewHolder(View view){
             typeIv = view.findViewById(R.id.item_mainlv_iv);
             typeTv = view.findViewById(R.id.item_mainlv_tv_title);
             timeTv = view.findViewById(R.id.item_mainlv_tv_time);
-            beizhuTv = view.findViewById(R.id.item_mainlv_tv_beizhu);
+            descriptionTv = view.findViewById(R.id.item_mainlv_tv_description);
             moneyTv = view.findViewById(R.id.item_mainlv_tv_money);
         }
     }

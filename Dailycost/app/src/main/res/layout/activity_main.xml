@@ -18,7 +18,7 @@
             android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:textSize="18sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/main_iv_search"
@@ -40,18 +40,8 @@
             android:background="@color/grey_f3f3f3"
             android:layout_marginRight="398dp"
             android:layout_marginBottom="763dp"
-            android:src="@mipmap/more"></ImageButton>
+            android:src="@mipmap/more" />
     </RelativeLayout>
-
-    <!--    <TextView-->
-<!--        android:id="@+id/main_tv_shuJu"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="450dp"-->
-<!--        android:drawableTop="@mipmap/it_searchtext"-->
-<!--        android:gravity="center"-->
-<!--        android:text="@string/not_data"-->
-<!--        android:textSize="20sp" />-->
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
         android:id="@+id/main_lv"
@@ -63,7 +53,7 @@
         android:divider="@null"
         android:dividerHeight="6dp"
         android:padding="10dp"
-        android:scrollbars="none"></com.baoyz.swipemenulistview.SwipeMenuListView>
+        android:scrollbars="none" />
 
     <ImageButton
         android:id="@+id/main_btn_edit"
@@ -74,5 +64,5 @@
         android:background="@drawable/main_morebtn_bg"
         android:gravity="center"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/ic_add"></ImageButton>
+        android:src="@mipmap/ic_add" />
 </RelativeLayout>

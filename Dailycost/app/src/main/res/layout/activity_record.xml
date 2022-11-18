@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,6 +16,7 @@
             android:onClick="onClick"
             android:layout_marginLeft="10dp">
         </ImageView>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/record_tabs"
             android:layout_width="wrap_content"
@@ -26,8 +26,7 @@
             app:tabMode="fixed"
             app:tabTextColor="@color/grey_7D7D7D"
             app:tabSelectedTextColor="@color/black"
-            app:tabIndicatorColor="@color/black"
-            ></com.google.android.material.tabs.TabLayout>
+            app:tabIndicatorColor="@color/black" />
     </RelativeLayout>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/record_vp"

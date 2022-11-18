@@ -12,7 +12,8 @@ public class RecordPagerAdapter extends FragmentPagerAdapter {
     List<Fragment> fragmentList;
     String[] tittles = {"支出","收入"};
     public RecordPagerAdapter(@NonNull FragmentManager fm,List<Fragment> fragmentList) {
-        super(fm);
+        //super(fm)已被弃用
+        super(fm,FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         this.fragmentList = fragmentList;
     }
 

@@ -1,5 +1,6 @@
 package utils;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -21,7 +22,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
     Button ensureBtn,cancelBtn;
 
     public interface OnEnsureListener{
-        public void onEnsure(String time,int year,int month,int day);
+        void onEnsure(String time, int year, int month, int day);
     }
 
     OnEnsureListener onEnsureListener;
@@ -48,6 +49,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
         hideDatePickerHeader();
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -55,7 +57,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
                 cancel();
                 break;
             case R.id.dialog_time_btn_ensure:
-                int year = datePicker.getYear();  //选择年份
+                int year = datePicker.getYear();                //选择年份
                 int month = datePicker.getMonth()+1;
                 int dayOfMonth = datePicker.getDayOfMonth();
                 String monthStr = String.valueOf(month);
@@ -66,7 +68,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
                 if (dayOfMonth<10){
                     dayStr = "0"+dayOfMonth;
                 }
-//              获取输入的小时和分钟
+                                                                //获取输入的小时和分钟
                 String hourStr = hourEt.getText().toString();
                 String minuteStr = minuteEt.getText().toString();
                 int hour = 0;
@@ -98,7 +100,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
         }
     }
 
-//    隐藏DatePicker的头布局
+    //隐藏DatePicker的头布局
     private void hideDatePickerHeader(){
         ViewGroup rootView = (ViewGroup) datePicker.getChildAt(0);
         if (rootView == null) {
@@ -109,7 +111,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
             return;
         }
 
-//        5.0
+        //5.0
         int headerId = getContext().getResources().getIdentifier("day_picker_selector_layout", "id", "android");
         if (headerId == headerView.getId()) {
             headerView.setVisibility(View.GONE);
@@ -129,7 +131,7 @@ public class SelectTimeDialog extends Dialog implements View.OnClickListener {
             return;
         }
 
-//        6.0
+        //6.0
         headerId = getContext().getResources().getIdentifier("date_picker_header","id","android");
         if (headerId == headerView.getId()) {
             headerView.setVisibility(View.GONE);

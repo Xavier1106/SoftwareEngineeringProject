@@ -35,4 +35,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="not_data">暂无数据</string>
+    <string name="emptyTime">:</string>
+    <string name="startTime">2020/1</string>
+    <string name="_2020">2020</string>
+    <string name="_0">￥ 0</string>
 </resources>

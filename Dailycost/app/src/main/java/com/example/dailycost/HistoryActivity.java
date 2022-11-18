@@ -2,11 +2,10 @@ package com.example.dailycost;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +18,7 @@ import db.AccountBean;
 import db.DBManager;
 import utils.CalendarDialog;
 
+@SuppressLint("SetTextI18n")
 public class HistoryActivity extends AppCompatActivity {
     ListView historyLv;
     TextView timeTv;
@@ -34,8 +34,7 @@ public class HistoryActivity extends AppCompatActivity {
         historyLv = findViewById(R.id.history_lv);
         timeTv = findViewById(R.id.history_tv_time);
         mDatas = new ArrayList<>();
-        // 设置适配器
-        adapter = new AccountAdapter(this,mDatas);
+        adapter = new AccountAdapter(this,mDatas);//设置适配器
         historyLv.setAdapter(adapter);
         initTime();
         timeTv.setText(year+"年"+month+"月");
@@ -44,13 +43,10 @@ public class HistoryActivity extends AppCompatActivity {
     }
     /*设置ListView每一个item的长按事件*/
     private void setLVClickListener() {
-        historyLv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                AccountBean accountBean = mDatas.get(position);
-                deleteItem(accountBean);
-                return false;
-            }
+        historyLv.setOnItemLongClickListener((parent, view, position, id) -> {
+            AccountBean accountBean = mDatas.get(position);
+            deleteItem(accountBean);
+            return false;
         });
     }
 
@@ -59,13 +55,10 @@ public class HistoryActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("提示信息").setMessage("您确定要删除这条记录么？")
                 .setNegativeButton("取消",null)
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        DBManager.deleteItemFromAccounttbById(delId);
-                        mDatas.remove(accountBean);   //实时刷新，从数据源删除
-                        adapter.notifyDataSetChanged();
-                    }
+                .setPositiveButton("确定", (dialog, which) -> {
+                    DBManager.deleteItemFromAccounttbById(delId);
+                    mDatas.remove(accountBean);//实时刷新，从数据源删除
+                    adapter.notifyDataSetChanged();
                 });
         builder.create().show();
     }
@@ -84,23 +77,21 @@ public class HistoryActivity extends AppCompatActivity {
         month = calendar.get(Calendar.MONTH)+1;
     }
 
+    @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.history_iv_back:
                 finish();
                 break;
-            case R.id.history_iv_rili:
+            case R.id.history_iv_calendar:
                 CalendarDialog dialog = new CalendarDialog(this,dialogSelPos,dialogSelMonth);
                 dialog.show();
                 dialog.setDialogSize();
-                dialog.setOnRefreshListener(new CalendarDialog.OnRefreshListener() {
-                    @Override
-                    public void onRefresh(int selPos, int year, int month) {
-                        timeTv.setText(year+"年"+month+"月");
-                        loadData(year,month);
-                        dialogSelPos = selPos;
-                        dialogSelMonth = month;
-                    }
+                dialog.setOnRefreshListener((selPos, year, month) -> {
+                    timeTv.setText(year+"年"+month+"月");
+                    loadData(year,month);
+                    dialogSelPos = selPos;
+                    dialogSelMonth = month;
                 });
                 break;
         }

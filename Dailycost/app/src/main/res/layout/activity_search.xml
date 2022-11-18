@@ -13,7 +13,8 @@
             android:layout_height="match_parent"
             android:onClick="onClick"
             android:layout_marginLeft="10dp"
-            android:src="@mipmap/it_back"/>
+            android:src="@mipmap/it_back"
+            android:layout_marginStart="10dp" />
         <EditText
             android:id="@+id/search_et"
             android:layout_width="match_parent"

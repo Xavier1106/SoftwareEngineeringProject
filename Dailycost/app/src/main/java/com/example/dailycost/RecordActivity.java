@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -13,8 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapter.RecordPagerAdapter;
+import db.AccountBean;
 import frag_record.IncomeFragment;
-import frag_record.BaseRecordFragment;
 import frag_record.OutcomeFragment;
 
 public class RecordActivity extends AppCompatActivity {
@@ -33,8 +35,22 @@ public class RecordActivity extends AppCompatActivity {
 
     private void initPager() {
         List<Fragment>fragmentList = new ArrayList<>();
-        OutcomeFragment outFrag = new OutcomeFragment();
-        IncomeFragment inFrag = new IncomeFragment();
+        Intent intent = getIntent();
+        AccountBean accountBean = (AccountBean)intent.getSerializableExtra("accoutbean");
+        OutcomeFragment outFrag = null;
+        IncomeFragment inFrag = null;
+        outFrag = new OutcomeFragment();
+        inFrag = new IncomeFragment();
+        if(accountBean!=null){
+            if(accountBean.getKind()==0){
+                outFrag = new OutcomeFragment(accountBean);
+            }
+            else if(accountBean.getKind()==1){
+                inFrag = new IncomeFragment(accountBean);
+            }
+
+        }
+
         fragmentList.add(outFrag);
         fragmentList.add(inFrag);
 
@@ -44,11 +60,10 @@ public class RecordActivity extends AppCompatActivity {
     }
 
     //点击事件
+    @SuppressLint("NonConstantResourceId")
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.record_iv_back:
-                finish();
-                break;
+        if (view.getId() == R.id.record_iv_back) {
+            finish();
         }
     }
 }

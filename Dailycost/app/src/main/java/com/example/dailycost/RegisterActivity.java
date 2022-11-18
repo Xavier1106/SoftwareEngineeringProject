@@ -2,15 +2,14 @@ package com.example.dailycost;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.text.InputType;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
@@ -18,8 +17,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private EditText login_name;
     private EditText login_pwd;
-    private Button login_ok;
-    private Button login_weChat;
     private ImageButton login_eye;
     boolean showPwd = false;
     @Override
@@ -32,11 +29,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private void intViews() {
         login_name = findViewById(R.id.login_name);
         login_pwd = findViewById(R.id.login_pwd);
-        login_ok = findViewById(R.id.login_ok);
         login_eye = findViewById(R.id.login_eye);
-        login_weChat = findViewById(R.id.login_weChat);
+        //onclick在xml绑定
+        //Button login_weChat = findViewById(R.id.login_weChat);
+        //Button login_ok = findViewById(R.id.login_ok);
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
         switch (v.getId()){

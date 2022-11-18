@@ -3,11 +3,10 @@ package db;
 public class ChartItemBean {
     int sImageId;
     String type;
-    float ratio;   //所占比例
-    float totalMoney;  //此项的总钱数
+    float ratio;        //所占比例
+    float totalMoney;   //此项的总钱数
 
-    public ChartItemBean() {
-    }
+    public ChartItemBean() {}
 
     public void setsImageId(int sImageId) {
         this.sImageId = sImageId;

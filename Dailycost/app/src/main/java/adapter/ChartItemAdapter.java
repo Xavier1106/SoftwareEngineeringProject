@@ -15,9 +15,7 @@ import java.util.List;
 import db.ChartItemBean;
 import utils.FloatUtils;
 
-/*
-* 账单详情页面，listview的适配器
-* */
+//账单详情页面，listview的适配器
 public class ChartItemAdapter extends BaseAdapter {
     Context context;
     List<ChartItemBean> mDatas;
@@ -53,7 +51,7 @@ public class ChartItemAdapter extends BaseAdapter {
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
-//        获取显示内容
+        //获取显示内容
         ChartItemBean bean = mDatas.get(position);
         holder.iv.setImageResource(bean.getsImageId());
         holder.typeTv.setText(bean.getType());

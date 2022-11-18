@@ -14,7 +14,7 @@
             android:id="@+id/frag_record_iv"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@mipmap/ic_qita_fs">
+            android:src="@mipmap/ic_others_fs">
         </ImageView>
         <TextView
             android:id="@+id/frag_record_tv_type"
@@ -84,15 +84,15 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="1dp"
                 android:padding="10dp"
-                android:text="2022年10月24日 16:35"></TextView>
+                android:text="2022年10月24日 16:35" />
 
             <TextView
-                android:id="@+id/frag_record_tv_beizhu"
+                android:id="@+id/frag_record_tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="-3dp"
                 android:layout_toLeftOf="@id/frag_record_tv_time"
                 android:padding="10dp"
-                android:text="添加备注"></TextView>
+                android:text="添加备注" />
         </RelativeLayout>
     </RelativeLayout>

@@ -1,19 +1,21 @@
 package db;
 
-//   描述记录一条数据的相关内容类
-//      收支记录表
+//描述记录一条数据的相关内容类
+//收支记录表
 
-public class AccountBean {
-    int id;
-    String typename;   //类型
-    int sImageId;   //被选中类型图片
-    String beizhu;   //备注
-    float money;  //价格
-    String time;  //保存时间字符串
-    int year;
-    int month;
-    int day;
-    int kind;   //类型  收入---1   支出---0
+import android.content.ContentValues;
+
+import java.io.Serializable;
+
+public class AccountBean implements Serializable {
+    private int id;
+    private String typename;            //类型
+    private int sImageId;               //被选中类型图片
+    private String description;         //备注
+    private float money;                //价格
+    private String time;                //时间戳
+    private int year,month,day;         //记录日期(便于加速数据库查询)
+    private int kind;                   //类型  收入=1   支出=0
 
     public int getId() {
         return id;
@@ -39,12 +41,12 @@ public class AccountBean {
         this.sImageId = sImageId;
     }
 
-    public String getBeizhu() {
-        return beizhu;
+    public String getDescription() {
+        return description;
     }
 
-    public void setBeizhu(String beizhu) {
-        this.beizhu = beizhu;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public float getMoney() {
@@ -95,19 +97,45 @@ public class AccountBean {
         this.kind = kind;
     }
 
-    public AccountBean() {
+    public AccountBean() {}
+    public AccountBean(AccountBean data){
+        this.id = data.id;
+        this.typename = data.typename;
+        this.sImageId = data.sImageId;
+        this.description = data.description;
+        this.money = data.money;
+        this.time = data.time;
+        this.year = data.year;
+        this.month = data.month;
+        this.day = data.day;
+        this.kind = data.kind;
     }
 
-    public AccountBean(int id, String typename, int sImageId, String beizhu, float money, String time, int year, int month, int day, int kind) {
+
+    public AccountBean(int id, String typename, int sImageId, String description, float money, String time, int year, int month, int day, int kind) {
         this.id = id;
         this.typename = typename;
         this.sImageId = sImageId;
-        this.beizhu = beizhu;
+        this.description = description;
         this.money = money;
         this.time = time;
         this.year = year;
         this.month = month;
         this.day = day;
         this.kind = kind;
+    }
+
+    public ContentValues toContentValues(){
+        ContentValues values=new ContentValues();
+        values.put("typename",typename);
+        values.put("sImageId",sImageId);
+        values.put("description",description);
+        values.put("money",money);
+        values.put("time",time);
+        values.put("year",year);
+        values.put("month",month);
+        values.put("day",day);
+        values.put("kind",kind);
+        return values;
     }
 }
