@@ -1,0 +1,19 @@
+文件包说明:
+    Pages:前端.java,包括{Activity,Dialog,Fragment...}
+    res:前端(.xml/.properties)
+        layout:页面布局.xml
+        values:常量配置.xml
+            colors.xml:颜色配置
+            strings.xml:字符串字面量配置
+        raw:默认设置.properties[只读]
+            db.properties:保存数据库名与库中表名
+    Utils:后端.java
+        Database:数据库存取
+        Property:全局设置
+
+命名规范:
+    类名:AaaBbb
+    方法:aaaBbb
+    成员:aaaBbb
+    参数:aaBb(用缩写)
+    枚举:AAABBB
