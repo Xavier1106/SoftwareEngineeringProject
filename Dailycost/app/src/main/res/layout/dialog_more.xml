@@ -15,7 +15,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="52dp"
-        android:drawableTop="@mipmap/it_about"
         android:text="@string/about"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +28,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="28dp"
-        android:drawableTop="@mipmap/it_settings"
         android:text="@string/setting"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_more_btn_record" />
@@ -42,7 +40,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="28dp"
-        android:drawableTop="@mipmap/it_records"
         android:text="@string/history_record"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_more_btn_info" />
@@ -64,7 +61,6 @@
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="28dp"
-        android:drawableTop="@mipmap/it_details"
         android:text="@string/account_info"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_more_btn_about" />

@@ -19,7 +19,7 @@ public class IncomeFragment extends BaseRecordFragment {
         typeList.addAll(inlist);
         adapter.notifyDataSetChanged();
         typeTv.setText("其他");
-        typeIv.setImageResource(R.mipmap.in_others_fs);
+        typeIv.setImageResource(R.mipmap.in_qt_fs);
         if(flag){
             TypeBean type = new TypeBean();
             type.setKind(accountBean.getKind());

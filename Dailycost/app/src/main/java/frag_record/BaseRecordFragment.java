@@ -31,9 +31,9 @@ import java.util.Objects;
 
 import db.AccountBean;
 import db.TypeBean;
-import utils.DescriptionDialog;
 import utils.KeyBoardUtils;
 import utils.SelectTimeDialog;
+import utils.BeiZhuDialog;
 
 //记录页面中的支出模块
 public abstract class BaseRecordFragment extends Fragment implements View.OnClickListener {
@@ -47,7 +47,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     TypeBaseAdapter adapter;
     AccountBean accountBean;            //将需要插入到记账本中的数据保存成对象形式
     SelectTimeDialog dialogtime;        //时间选择dialog
-    DescriptionDialog dialogtext;       //备注dialog
+    BeiZhuDialog dialogtext;       //备注dialog
     boolean flag;
 
     @Override
@@ -56,7 +56,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
         if(!flag){
             accountBean = new AccountBean(); //创建对象
             accountBean.setTypename("其他");
-            accountBean.setsImageId(R.mipmap.ic_others_fs);
+            accountBean.setsImageId(R.mipmap.ic_qita_fs);
         }
     }
 
@@ -188,7 +188,7 @@ public abstract class BaseRecordFragment extends Fragment implements View.OnClic
     //备注对话框
     public void showBZDialog(){
         if(dialogtext==null)
-            dialogtext = new DescriptionDialog(Objects.requireNonNull(getContext()));
+            dialogtext = new BeiZhuDialog(Objects.requireNonNull(getContext()));
         dialogtext.show();
         dialogtext.setDialogSize();
         dialogtext.setOnEnsureListener(() -> {
