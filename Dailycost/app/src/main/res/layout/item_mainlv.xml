@@ -8,7 +8,7 @@
         android:id="@+id/item_mainlv_iv"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:src="@mipmap/ic_smk_wine_fs">
+        android:src="@mipmap/ic_yanjiu_fs">
     </ImageView>
 
     <LinearLayout
